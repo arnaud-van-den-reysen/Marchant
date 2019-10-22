@@ -22,11 +22,12 @@ public class Mutation {
    * @return ArrayList<Noeud>
    */
   public ArrayList<Noeud> geneticMutation(ArrayList<Noeud> EntreeNoeuds){
+    System.out.println("-------- MUTATION -----------");
     Random r = new Random();
     int nbMutation = 1+r.nextInt(20);
-    Noeud tmpNoeud = new Noeud(0, 0, 0);
     
     for(int i = 0;i<nbMutation;i++) {
+      Noeud tmpNoeud = new Noeud(0, 0, 0);
       int rand1 = 1+r.nextInt(EntreeNoeuds.size()-1);
       int rand2 = 1+r.nextInt(EntreeNoeuds.size()-1);
       tmpNoeud = EntreeNoeuds.get(rand1);

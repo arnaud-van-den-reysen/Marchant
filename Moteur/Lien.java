@@ -35,7 +35,7 @@ public class Lien {
    * @param n2
    * @return
    */
-  public double calculLien(Noeud n1,Noeud n2) {
+  private double calculLien(Noeud n1,Noeud n2) {
     return Math.sqrt(Math.pow(n1.getX()-n2.getX(), 2)+Math.pow(n1.getY()-n2.getY(), 2));
   }
 }
