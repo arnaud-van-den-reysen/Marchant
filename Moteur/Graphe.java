@@ -1,7 +1,5 @@
 package Moteur;
 
-import java.util.ArrayList;
-
 /**
  * 
  * @author Arnaud.VDR
@@ -11,29 +9,16 @@ import java.util.ArrayList;
  *
  */
 public class Graphe {
-  /**
-   * liste de Noeuds
-   */
-  public ArrayList<Noeud> Noeuds = new ArrayList<Noeud>();
-  
-  /**
-   * 
-   * @param nb
-   */
-  public Graphe(int nb) {
-    this.Noeuds=generationNoeud(nb);
-  }
   
   /**
    * generation des noeuds
    * @param nb
    * @return listeNoeuds
    */
-  private ArrayList<Noeud> generationNoeud(int nb) {
-    ArrayList<Noeud> Noeuds = new ArrayList<Noeud>();
+  public Noeud[] generationNoeud(int nb) {
+    Noeud[] Noeuds = new Noeud[nb];
     for(int i = 0;i<nb;i++) {
-      Noeud n = new Noeud(i,Math.random()*400,Math.random()*500);
-      Noeuds.add(n);
+      Noeuds[i] = new Noeud(i,Math.random()*400,Math.random()*500);
     }
     return Noeuds;
   }

@@ -1,6 +1,5 @@
 package Moteur;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -18,22 +17,28 @@ public class Mutation {
    * 1. definition nombre de mutation, aleatoire entre 1 et 20 <br/>
    * 2. une mutation est une permutation entre 2 noeuds <br/>
    * 3. repetition de la permutation selon le nbMutation <br/>
+   * La mise en place d'une variable buffer est indispensable for whatever reason
    * @param EntreeNoeuds
-   * @return ArrayList<Noeud>
+   * @return Noeud[]
    */
-  public ArrayList<Noeud> geneticMutation(ArrayList<Noeud> EntreeNoeuds){
-    System.out.println("-------- MUTATION -----------");
+  public Noeud[] geneticMutation(Noeud[] EntreeNoeuds){
+//    System.out.println("-------- MUTATION -----------");
     Random r = new Random();
     int nbMutation = 1+r.nextInt(20);
     
+    Noeud[] Noeuds = new Noeud[EntreeNoeuds.length];
+    for(int i = 0;i<EntreeNoeuds.length;i++) {
+      Noeuds[i] = EntreeNoeuds[i];
+    }
+    
     for(int i = 0;i<nbMutation;i++) {
       Noeud tmpNoeud = new Noeud(0, 0, 0);
-      int rand1 = 1+r.nextInt(EntreeNoeuds.size()-1);
-      int rand2 = 1+r.nextInt(EntreeNoeuds.size()-1);
-      tmpNoeud = EntreeNoeuds.get(rand1);
-      EntreeNoeuds.set(rand1, EntreeNoeuds.get(rand2));
-      EntreeNoeuds.set(rand2, tmpNoeud);
+      int rand1 = 1+r.nextInt(Noeuds.length-1);
+      int rand2 = 1+r.nextInt(Noeuds.length-1);
+      tmpNoeud = Noeuds[rand1];
+      Noeuds[rand1] = Noeuds[rand2];
+      Noeuds[rand2] = tmpNoeud;
     }
-    return EntreeNoeuds;
+    return Noeuds;
   }
 }

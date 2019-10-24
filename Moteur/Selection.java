@@ -1,7 +1,5 @@
 package Moteur;
 
-import java.util.ArrayList;
-
 /**
  * 
  * @author Arnaud.VDR
@@ -18,21 +16,21 @@ public class Selection {
    * 2. return NouveauChemin <br/>
    * @param AncienNoeuds
    * @param NouveauNoeuds
-   * @return ArrayList<Noeud>
+   * @return Noeud[]
    */
-  public ArrayList<Noeud> geneticSelection(ArrayList<Noeud> AncienNoeuds, ArrayList<Noeud> NouveauNoeuds) {
-    System.out.println("-------- SELECTION -----------");
+  public Noeud[] geneticSelection(Noeud[] AncienNoeuds, Noeud[] NouveauNoeuds) {
+//    System.out.println("-------- SELECTION -----------");
     Lien l = new Lien();
     double tailleAncienChemin = l.tailleChemin(AncienNoeuds);
     
     double tailleNouveauChemin = l.tailleChemin(NouveauNoeuds);
 
-    System.out.print("------- passage : ");
+//    System.out.print("------- passage : ");
     if(tailleNouveauChemin < tailleAncienChemin) {
-      System.out.println("IF");
+//      System.out.println("IF");
       return NouveauNoeuds;
     }
-    System.out.println("ELSE");
+//    System.out.println("ELSE");
     return AncienNoeuds;
   }
 }

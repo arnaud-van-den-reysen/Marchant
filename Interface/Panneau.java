@@ -2,10 +2,10 @@ package Interface;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import AffichageDebug.AffDebug;
 import Moteur.Chemin;
 import Moteur.Graphe;
 import Moteur.Noeud;
@@ -13,42 +13,45 @@ import Moteur.Noeud;
 public class Panneau extends JPanel { 
   public void paintComponent(Graphics g){
     int nb = 10;
-    Graphe gr = new Graphe(nb);
+    int iterationMutaSelect = 1000000;
+    Graphe gr = new Graphe();
     Chemin ch = new Chemin();
+    AffDebug aff = new AffDebug();
     
-    ArrayList<Noeud> ListeNoeuds = new ArrayList<Noeud>();
-    /**
-     * Creation d'une liste tampon
-     */
-    ListeNoeuds = gr.Noeuds;
+    Noeud[] ListeNoeuds = new Noeud[nb];
+    ListeNoeuds = gr.generationNoeud(nb);
     
     for(int i = 0;i<nb;i++) {
-      g.fillOval((int)gr.Noeuds.get(i).getX()-5, (int)gr.Noeuds.get(i).getY()-5, 10, 10);
+      g.fillOval((int)ListeNoeuds[i].getX()-5, (int)ListeNoeuds[i].getY()-5, 10, 10);
     }
     
     /**
      * Affichage Chemin avant
      */
     g.setColor(Color.GREEN);
-    for(int i = 0;i<gr.Noeuds.size();i++) {
-      if(i==gr.Noeuds.size()-1) {
-        g.drawLine((int)gr.Noeuds.get(i).getX(), (int)gr.Noeuds.get(i).getY(), (int)gr.Noeuds.get(0).getX(), (int)gr.Noeuds.get(0).getY());
+    for(int i = 0;i<ListeNoeuds.length;i++) {
+      if(i==ListeNoeuds.length-1) {
+        g.drawLine((int)ListeNoeuds[i].getX(), (int)ListeNoeuds[i].getY(), (int)ListeNoeuds[0].getX(), (int)ListeNoeuds[0].getY());
       } else {
-        g.drawLine((int)gr.Noeuds.get(i).getX(), (int)gr.Noeuds.get(i).getY(), (int)gr.Noeuds.get(i+1).getX(), (int)gr.Noeuds.get(i+1).getY());
+        g.drawLine((int)ListeNoeuds[i].getX(), (int)ListeNoeuds[i].getY(), (int)ListeNoeuds[i+1].getX(), (int)ListeNoeuds[i+1].getY());
       }
     }
+    
+    aff.affichageTailleCheminEtOrderChemin(ListeNoeuds,"origin");
     
     /**
      * affichage du chemin généré
      */
-    ListeNoeuds = ch.calculChemin(ListeNoeuds);
+    ListeNoeuds = ch.calculChemin(ListeNoeuds,iterationMutaSelect);
+    
+    aff.affichageTailleCheminEtOrderChemin(ListeNoeuds,"final");
     
     g.setColor(Color.RED);
-    for(int i = 0;i<ListeNoeuds.size();i++) {
-      if(i==ListeNoeuds.size()-1) {
-        g.drawLine((int)ListeNoeuds.get(i).getX(), (int)ListeNoeuds.get(i).getY(), (int)ListeNoeuds.get(0).getX(), (int)ListeNoeuds.get(0).getY());
+    for(int i = 0;i<ListeNoeuds.length;i++) {
+      if(i==ListeNoeuds.length-1) {
+        g.drawLine((int)ListeNoeuds[i].getX(), (int)ListeNoeuds[i].getY(), (int)ListeNoeuds[0].getX(), (int)ListeNoeuds[0].getY());
       } else {
-        g.drawLine((int)ListeNoeuds.get(i).getX(), (int)ListeNoeuds.get(i).getY(), (int)ListeNoeuds.get(i+1).getX(), (int)ListeNoeuds.get(i+1).getY());
+        g.drawLine((int)ListeNoeuds[i].getX(), (int)ListeNoeuds[i].getY(), (int)ListeNoeuds[i+1].getX(), (int)ListeNoeuds[i+1].getY());
       }
     }
   }               

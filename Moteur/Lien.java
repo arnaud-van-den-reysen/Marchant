@@ -1,7 +1,5 @@
 package Moteur;
 
-import java.util.ArrayList;
-
 /**
  * 
  * @author Arnaud.VDR
@@ -17,13 +15,13 @@ public class Lien {
    * @param EntreeNoeuds
    * @return double tailleChemin
    */
-  public double tailleChemin(ArrayList<Noeud> EntreeNoeuds) {
+  public double tailleChemin(Noeud[] EntreeNoeuds) {
     double tailleChemin = -0.f;
-    for(int i = 0;i<EntreeNoeuds.size();i++) {
-      if(i==EntreeNoeuds.size()-1) {
-        tailleChemin+=calculLien(EntreeNoeuds.get(i), EntreeNoeuds.get(0));
+    for(int i = 0;i<EntreeNoeuds.length;i++) {
+      if(i==EntreeNoeuds.length-1) {
+        tailleChemin+=calculLien(EntreeNoeuds[i], EntreeNoeuds[0]);
       } else {
-        tailleChemin+=calculLien(EntreeNoeuds.get(i), EntreeNoeuds.get(i+1));
+        tailleChemin+=calculLien(EntreeNoeuds[i], EntreeNoeuds[i+1]);
       }
     }
     return tailleChemin;

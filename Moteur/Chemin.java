@@ -1,6 +1,6 @@
 package Moteur;
 
-import java.util.ArrayList;
+import AffichageDebug.AffDebug;
 
 /**
  * 
@@ -17,88 +17,53 @@ public class Chemin {
    * @param gr
    * @return
    */
-  public ArrayList<Noeud> calculChemin(ArrayList<Noeud> EntreeNoeuds) {
+  public Noeud[] calculChemin(Noeud[] EntreeNoeuds, int iterationMutaSelect) {
     Mutation m = new Mutation();
     Selection s = new Selection();
-    Lien l = new Lien();
+    AffDebug aff = new AffDebug();
     
-    ArrayList<Noeud> tmpNoeuds = new ArrayList<Noeud>();
+    Noeud[] tmpNoeuds = new Noeud[EntreeNoeuds.length];
     /**
      * Creation d'une liste tampon
      */    
-    for(int i = 0;i<EntreeNoeuds.size();i++) {
-      Noeud n = new Noeud(0,0,0);
-      tmpNoeuds.add(n);
+    
+//    aff.affichageTailleCheminEtOrderChemin(EntreeNoeuds,"Chemin");
+
+    for(int i = 0;i<EntreeNoeuds.length;i++) {
+      tmpNoeuds[i] = EntreeNoeuds[i];
     }
     
-//    System.out.println("taille NON = " + l.tailleChemin(tmpNoeuds));
-//    for(int i = 0;i<tmpNoeuds.size();i++) {
-//      System.out.print(tmpNoeuds.get(i).getId());
-//    }
-//    System.out.println();
-    
-    for(int i = 0;i<EntreeNoeuds.size();i++) {
-      tmpNoeuds.get(i).setIdXY(EntreeNoeuds.get(i).getId(), EntreeNoeuds.get(i).getX(), EntreeNoeuds.get(i).getY());
-    }
-    
-//    System.out.println("taille EntreeNoeuds = " + l.tailleChemin(EntreeNoeuds));
-//    for(int i = 0;i<EntreeNoeuds.size();i++) {
-//      System.out.print(EntreeNoeuds.get(i).getId());
-//    }
-//    System.out.println();
-    
-//    System.out.println("taille tmpNoeuds = " + l.tailleChemin(tmpNoeuds));
-//    for(int i = 0;i<tmpNoeuds.size();i++) {
-//      System.out.print(tmpNoeuds.get(i).getId());
-//    }
-//    System.out.println();
+//    aff.affichageTailleCheminEtOrderChemin(EntreeNoeuds,"Chemin");
 //    
+//    aff.affichageTailleCheminEtOrderChemin(tmpNoeuds,"Chemin");
+
     /**
      * 1000 MutationSelection
      */
-    for(int i = 0; i<10;i++) {
+    for(int i = 0; i<iterationMutaSelect;i++) {
       
-      System.out.println("##########################");
-      System.out.println("taille EntreeNoeuds = " + l.tailleChemin(EntreeNoeuds));
-      for(int j = 0;j<EntreeNoeuds.size();j++) {
-        System.out.print(EntreeNoeuds.get(j).getId());
-      }
-      System.out.println();
-      
-      System.out.println("taille tmpNoeuds = " + l.tailleChemin(tmpNoeuds));
-      for(int j = 0;j<tmpNoeuds.size();j++) {
-        System.out.print(tmpNoeuds.get(j).getId());
-      }
-      System.out.println();
+//      System.out.println("##########################");
+//      
+//      aff.affichageTailleCheminEtOrderChemin(EntreeNoeuds,"Chemin");
+//      
+//      aff.affichageTailleCheminEtOrderChemin(tmpNoeuds,"Chemin");
   
       tmpNoeuds = m.geneticMutation(tmpNoeuds);
       
-      System.out.println("taille EntreeNoeuds = " + l.tailleChemin(EntreeNoeuds));
-      for(int j = 0;j<EntreeNoeuds.size();j++) {
-        System.out.print(EntreeNoeuds.get(j).getId());
-      }
-      System.out.println();
-      
-      System.out.println("taille tmpNoeuds = " + l.tailleChemin(tmpNoeuds));
-      for(int j = 0;j<tmpNoeuds.size();j++) {
-        System.out.print(tmpNoeuds.get(j).getId());
-      }
-      System.out.println();
-      
-      
+//      aff.affichageTailleCheminEtOrderChemin(EntreeNoeuds,"Chemin");
+//      
+//      aff.affichageTailleCheminEtOrderChemin(tmpNoeuds,"Chemin");
+
       tmpNoeuds = s.geneticSelection(EntreeNoeuds, tmpNoeuds);
       
-      System.out.println("taille EntreeNoeuds = " + l.tailleChemin(EntreeNoeuds));
-      for(int j = 0;j<EntreeNoeuds.size();j++) {
-        System.out.print(EntreeNoeuds.get(j).getId());
+      for(int j = 0;j<EntreeNoeuds.length;j++) {
+        EntreeNoeuds[j] = tmpNoeuds[j];
       }
-      System.out.println();
       
-      System.out.println("taille tmpNoeuds = " + l.tailleChemin(tmpNoeuds));
-      for(int j = 0;j<tmpNoeuds.size();j++) {
-        System.out.print(tmpNoeuds.get(j).getId());
-      }
-      System.out.println();
+//      aff.affichageTailleCheminEtOrderChemin(EntreeNoeuds,"Chemin");
+//      
+//      aff.affichageTailleCheminEtOrderChemin(tmpNoeuds,"Chemin");
+      
     }
 
     return tmpNoeuds;
