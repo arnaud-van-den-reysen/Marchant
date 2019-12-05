@@ -38,7 +38,7 @@ public class Chemin {
 //    aff.affichageTailleCheminEtOrderChemin(tmpNoeuds,"Chemin");
 
     /**
-     * 1000 MutationSelection
+     * boucle d'iterations
      */
     for(int i = 0; i<iterationMutaSelect;i++) {
       
