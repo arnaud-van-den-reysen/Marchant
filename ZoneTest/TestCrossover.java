@@ -33,9 +33,10 @@ public class TestCrossover {
     aff.affichageTailleCheminEtOrderChemin(population[0],"pop0");
     aff.affichageTailleCheminEtOrderChemin(population[1],"pop1");
     
-    Noeuds = cr.geneticCrossover(population);
+    Noeud[][] Noeudss = cr.CX2(population[0],population[1]);
     
-    aff.affichageTailleCheminEtOrderChemin(Noeuds,"final");
+    aff.affichageTailleCheminEtOrderChemin(Noeudss[0],"final");
+    aff.affichageTailleCheminEtOrderChemin(Noeudss[1],"final");
   }
 
 }

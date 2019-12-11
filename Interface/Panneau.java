@@ -5,21 +5,18 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import AffichageDebug.AffDebug;
-import Moteur.Chemin;
-import Moteur.Graphe;
+import Moteur.Lien;
 import Moteur.Noeud;
  
+@SuppressWarnings("serial")
 public class Panneau extends JPanel { 
+  Noeud[] listeNoeuds;
+  public Panneau(Noeud[] listeNoeuds) {
+    this.listeNoeuds = listeNoeuds;
+  }
+
   public void paintComponent(Graphics g){
-    int nb = 10;
-    int iterationMutaSelect = 20000000;
-    Graphe gr = new Graphe();
-    Chemin ch = new Chemin();
-    AffDebug aff = new AffDebug();
-    
-    Noeud[] ListeNoeuds = new Noeud[nb];
-    ListeNoeuds = gr.generationNoeud(nb);
+    Lien l = new Lien();
     
     /**
      * Pour faire plusieurs population,
@@ -31,49 +28,27 @@ public class Panneau extends JPanel {
      * et seulement à la toute fin,
      * faire une séléction du meilleur individu de la population.
      */
-//    Noeud[][] Population = new Noeud[nb][nb];
-//    for(int i = 0;i<nb;i++) {
-//      Population[i] = ListeNoeuds;
-//    }
-//    
-//    aff.affichagePopulationTailleCheminEtOrderChemin(Population, "Population");
     
-    for(int i = 0;i<nb;i++) {
+    for(int i = 0;i<listeNoeuds.length;i++) {
       if(i==0) {
-        g.fillOval((int)ListeNoeuds[i].getX()-5, (int)ListeNoeuds[i].getY()-5, 20, 20);
+        g.fillOval((int)listeNoeuds[i].getX()-10, (int)listeNoeuds[i].getY()-10, 20, 20);
       } else {
-        g.fillOval((int)ListeNoeuds[i].getX()-5, (int)ListeNoeuds[i].getY()-5, 10, 10);
+        g.fillOval((int)listeNoeuds[i].getX()-5, (int)listeNoeuds[i].getY()-5, 10, 10);
       }
     }
-    
-    /**
-     * Affichage Chemin avant
-     */
-//    g.setColor(Color.GREEN);
-//    for(int i = 0;i<ListeNoeuds.length;i++) {
-//      if(i==ListeNoeuds.length-1) {
-//        g.drawLine((int)ListeNoeuds[i].getX(), (int)ListeNoeuds[i].getY(), (int)ListeNoeuds[0].getX(), (int)ListeNoeuds[0].getY());
-//      } else {
-//        g.drawLine((int)ListeNoeuds[i].getX(), (int)ListeNoeuds[i].getY(), (int)ListeNoeuds[i+1].getX(), (int)ListeNoeuds[i+1].getY());
-//      }
-//    }
-    
-    aff.affichageTailleCheminEtOrderChemin(ListeNoeuds,"origin");
-
-    ListeNoeuds = ch.calculChemin(ListeNoeuds,iterationMutaSelect);
-    
-    aff.affichageTailleCheminEtOrderChemin(ListeNoeuds,"final");
     
     /**
      * affichage du chemin généré
      */
     g.setColor(Color.RED);
-    for(int i = 0;i<ListeNoeuds.length;i++) {
-      if(i==ListeNoeuds.length-1) {
-        g.drawLine((int)ListeNoeuds[i].getX(), (int)ListeNoeuds[i].getY(), (int)ListeNoeuds[0].getX(), (int)ListeNoeuds[0].getY());
+    for(int i = 0;i<listeNoeuds.length;i++) {
+      if(i==listeNoeuds.length-1) {
+        g.drawLine((int)listeNoeuds[i].getX(), (int)listeNoeuds[i].getY(), (int)listeNoeuds[0].getX(), (int)listeNoeuds[0].getY());
       } else {
-        g.drawLine((int)ListeNoeuds[i].getX(), (int)ListeNoeuds[i].getY(), (int)ListeNoeuds[i+1].getX(), (int)ListeNoeuds[i+1].getY());
+        g.drawLine((int)listeNoeuds[i].getX(), (int)listeNoeuds[i].getY(), (int)listeNoeuds[i+1].getX(), (int)listeNoeuds[i+1].getY());
       }
     }
+    
+    g.drawString("Taille total: " + l.tailleChemin(listeNoeuds), 10, 20);
   }               
 }
