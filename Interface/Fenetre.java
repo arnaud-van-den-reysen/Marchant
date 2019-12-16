@@ -1,8 +1,8 @@
-package Interface;
+package Marchant.Interface;
 
 import javax.swing.JFrame;
 
-import Moteur.Noeud;
+import Marchant.Moteur.Noeud;
 
 @SuppressWarnings("serial")
 public class Fenetre extends JFrame {

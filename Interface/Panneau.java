@@ -1,12 +1,12 @@
-package Interface;
+package Marchant.Interface;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import Moteur.Lien;
-import Moteur.Noeud;
+import Marchant.Moteur.Lien;
+import Marchant.Moteur.Noeud;
  
 @SuppressWarnings("serial")
 public class Panneau extends JPanel { 
@@ -20,13 +20,13 @@ public class Panneau extends JPanel {
     
     /**
      * Pour faire plusieurs population,
-     * il faut contenir plusieurs ListeNoeuds identiques au début.
+     * il faut contenir plusieurs ListeNoeuds identiques au dï¿½but.
      * Puis faire des mutations individuellement,
      * sauvegarder toutes les mutations,
-     * et finalement faire une séléction sur l'ensemble de la population.
+     * et finalement faire une sï¿½lï¿½ction sur l'ensemble de la population.
      * Il faut conserver un grand ensemble de population,
-     * et seulement à la toute fin,
-     * faire une séléction du meilleur individu de la population.
+     * et seulement ï¿½ la toute fin,
+     * faire une sï¿½lï¿½ction du meilleur individu de la population.
      */
     
     for(int i = 0;i<listeNoeuds.length;i++) {
@@ -38,7 +38,7 @@ public class Panneau extends JPanel {
     }
     
     /**
-     * affichage du chemin généré
+     * affichage du chemin gï¿½nï¿½rï¿½
      */
     g.setColor(Color.RED);
     for(int i = 0;i<listeNoeuds.length;i++) {

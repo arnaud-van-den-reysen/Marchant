@@ -1,10 +1,10 @@
-package ZoneTest;
+package Marchant.ZoneTest;
 
-import AffichageDebug.AffDebug;
-import Moteur.Chemin;
-import Moteur.Graphe;
-import Moteur.Lien;
-import Moteur.Noeud;
+import Marchant.AffichageDebug.AffDebug;
+import Marchant.Moteur.Chemin;
+import Marchant.Moteur.Graphe;
+
+import Marchant.Moteur.Noeud;
 
 /**
  * 
@@ -23,15 +23,15 @@ public class Test {
     Graphe gr = new Graphe();
     Chemin ch = new Chemin();
     AffDebug aff = new AffDebug();
-    
+
     Noeud[] Noeuds = new Noeud[nbNoeuds];
     Noeuds = gr.generationNoeud(nbNoeuds);
-    
-    aff.affichageTailleCheminEtOrderChemin(Noeuds,"origin");
-    
-    Noeuds = ch.calculChemin(Noeuds,iterationMutaSelect);
-    
-    aff.affichageTailleCheminEtOrderChemin(Noeuds,"final");
+
+    aff.affichageTailleCheminEtOrderChemin(Noeuds, "origin");
+
+    Noeuds = ch.calculChemin(Noeuds, iterationMutaSelect);
+
+    aff.affichageTailleCheminEtOrderChemin(Noeuds, "final");
   }
 
 }

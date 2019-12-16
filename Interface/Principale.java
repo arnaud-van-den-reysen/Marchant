@@ -1,13 +1,13 @@
-package Interface;
+package Marchant.Interface;
 
 import java.util.Random;
 
-import AffichageDebug.AffDebug;
-import Moteur.Chemin;
-import Moteur.Graphe;
-import Moteur.Lien;
-import Moteur.Mutation;
-import Moteur.Noeud;
+import Marchant.AffichageDebug.AffDebug;
+import Marchant.Moteur.Chemin;
+import Marchant.Moteur.Graphe;
+import Marchant.Moteur.Lien;
+import Marchant.Moteur.Mutation;
+import Marchant.Moteur.Noeud;
 
 public class Principale {
 

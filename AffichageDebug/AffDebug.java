@@ -1,7 +1,7 @@
-package AffichageDebug;
+package Marchant.AffichageDebug;
 
-import Moteur.Lien;
-import Moteur.Noeud;
+import Marchant.Moteur.Lien;
+import Marchant.Moteur.Noeud;
 
 /**
  * 

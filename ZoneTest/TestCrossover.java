@@ -1,15 +1,15 @@
-package ZoneTest;
+package  Marchant.ZoneTest;
 
-import AffichageDebug.AffDebug;
-import Moteur.Crossover;
-import Moteur.Graphe;
-import Moteur.Mutation;
-import Moteur.Noeud;
+import  Marchant.AffichageDebug.AffDebug;
+import  Marchant.Moteur.Crossover;
+import  Marchant.Moteur.Graphe;
+import  Marchant.Moteur.Mutation;
+import  Marchant.Moteur.Noeud;
 
 /**
  * 
  * @author Arnaud.VDR
- * @date 5 déc. 2019
+ * @date 5 dï¿½c. 2019
  * @project ISEN_Marchant
  * @package ZoneTest
  *

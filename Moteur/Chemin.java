@@ -1,6 +1,6 @@
-package Moteur;
+package Marchant.Moteur;
 
-import AffichageDebug.AffDebug;
+import Marchant.AffichageDebug.AffDebug;
 
 /**
  * 
@@ -20,7 +20,7 @@ public class Chemin {
   public Noeud[] calculChemin(Noeud[] EntreeNoeuds, int iterationMutaSelect) {
     Mutation m = new Mutation();
     Selection s = new Selection();
-    AffDebug aff = new AffDebug();
+    
     
     Noeud[] tmpNoeuds = new Noeud[EntreeNoeuds.length];
     /**

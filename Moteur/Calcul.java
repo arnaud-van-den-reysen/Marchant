@@ -1,4 +1,4 @@
-package Moteur;
+package Marchant.Moteur;
 
 import java.util.Random;
 

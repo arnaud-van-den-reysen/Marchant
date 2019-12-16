@@ -1,12 +1,12 @@
-package ZoneTest;
+package Marchant.ZoneTest;
 
 import java.util.Random;
 
-import AffichageDebug.AffDebug;
-import Moteur.Graphe;
-import Moteur.Lien;
-import Moteur.Mutation;
-import Moteur.Noeud;
+import Marchant.AffichageDebug.AffDebug;
+import Marchant.Moteur.Graphe;
+import Marchant.Moteur.Lien;
+import Marchant.Moteur.Mutation;
+import Marchant.Moteur.Noeud;
 
 public class TestPopulation {
 
@@ -84,7 +84,7 @@ public class TestPopulation {
       }
       
       /**
-       * mutation de l'individu séléctionné
+       * mutation de l'individu sï¿½lï¿½ctionnï¿½
        */
       ListeNoeuds = Population[a];
       ListeNoeuds = mu.geneticMutation(ListeNoeuds);

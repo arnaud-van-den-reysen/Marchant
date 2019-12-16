@@ -1,9 +1,9 @@
-package Moteur;
+package Marchant.Moteur;
 
 /**
  * 
  * @author Arnaud.VDR
- * @date 5 déc. 2019
+ * @date 5 dï¿½c. 2019
  * @project ISEN_Marchant
  * @package Moteur
  *
@@ -11,8 +11,8 @@ package Moteur;
 public class Crossover {
   
   /**
-   * Mélange deux individus, prend la première moitié du premier individu,
-   * puis la deuxième moitié sur second, sauf si le point existe déjà dans le nouvel individu,
+   * Mï¿½lange deux individus, prend la premiï¿½re moitiï¿½ du premier individu,
+   * puis la deuxiï¿½me moitiï¿½ sur second, sauf si le point existe dï¿½jï¿½ dans le nouvel individu,
    * alors prend le point du premier individu.
    * @param paths
    * @return Noeud[]
