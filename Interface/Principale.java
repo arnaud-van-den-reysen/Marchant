@@ -104,6 +104,7 @@ public class Principale {
       double tmpPop = 0.0;
       double lastTmpPop = 0.0;
       int a = 0;
+      @SuppressWarnings("unused")
       int b = 0;
       for (int i = 0; i < Population.length; i++) {
         lastTmpPop = tmpPop;

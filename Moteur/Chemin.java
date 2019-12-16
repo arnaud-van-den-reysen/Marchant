@@ -1,7 +1,5 @@
 package Marchant.Moteur;
 
-import Marchant.AffichageDebug.AffDebug;
-
 /**
  * 
  * @author Arnaud.VDR

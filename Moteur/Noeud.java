@@ -1,5 +1,7 @@
 package Marchant.Moteur;
 
+import Schedule.utilities.Position;
+
 /**
  * 
  * @author Arnaud.VDR
@@ -21,11 +23,17 @@ public class Noeud {
    * position en Y du noeud
    */
   private double y;
-  
+
   public Noeud(int id, double x, double y) {
-    this.id=id;
-    this.x=x;
-    this.y=y;
+    this.id = id;
+    this.x = x;
+    this.y = y;
+  }
+
+  public Noeud(int id, Position pos){
+    this.id = id;
+    this.x = pos.getX();
+    this.y = pos.getY();
   }
 
   public int getId() {
@@ -51,7 +59,7 @@ public class Noeud {
   public void setY(double y) {
     this.y = y;
   }
-  
+
   public void setIdXY(int id, double x, double y) {
     this.id = id;
     this.x = x;
@@ -62,5 +70,5 @@ public class Noeud {
   public String toString() {
     return "Noeud [id=" + id + ", x=" + x + ", y=" + y + "]";
   }
-  
+
 }
